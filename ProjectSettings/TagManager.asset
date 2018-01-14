@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Plane
+  - SphereFlappy
+  - Fire
+  - Collide
+  - StonePortal1
+  - StonePortal2
+  - StonePortal3
+  - InitArea1
+  - InitArea2
+  - InitArea3
+  - Skeleton
+  - LifePotion
+  - ManaPotion
+  - SkillWindow1
+  - SkillWindow2
+  - SkillWindow3
+  - ESCMenu
+  - CharacterMapPosition
+  - SkeletonWarrior
+  - MonsterPortal1
+  - WayPoint
+  - Map
+  - KingSword
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - ExpandMinimap
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
