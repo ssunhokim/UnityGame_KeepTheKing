@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 /*
 * Translate
@@ -19,6 +20,8 @@ public class Agent : MonoBehaviour
     public int Damage;  // 데미지 설정
     public float AttackSpeed;
     public float AttackRange;   // 공격범위내 있는지 확인
+    public float AttackEndTimer;
+    public float AttackCurrentTimer;
     public float SensorRange;   // 센서 범위내 있는 지 확인
     public float ChaseTime = 0.0f;
     public float ChaseCancelTime = 8.0f;
@@ -36,22 +39,16 @@ public class Agent : MonoBehaviour
     private float moveTimeTotal;
     private float moveTimeCurrent;
     public Animator animator;   // 몬스터 애니메이터
-
-    private int minDamaged;     // 플레이어가 주는 최소 데미지
-    private int randDamaged;    // 플레이어가 주는 데미지 범위
-
     public GameObject target;   // 타겟 설정
+    public Image HPBarImg;
 
-    protected MonsterStateMachine<Agent> monsterState;      //몬스터 상태전이
-    public MonsterManager monsterManager;
-    public List<GameObject> WalfList;
+    protected MonsterStateMachine<Agent> monsterState;      //몬스터 상태전이(FSM)
+    public List<GameObject> WalfList;       // 워프들 위치를 받게 한다.
 
     void Awake () {
         animator = gameObject.GetComponent<Animator>();
         monsterState = new MonsterStateMachine<Agent>();
-        monsterManager = GetComponent<MonsterManager>();
-
-        transform.Rotate(0, Mathf.PI / 2, 0);
+        transform.Rotate(0, Mathf.PI / 2, 0);       // 몬스터 돌게 하기
 
         ResetState();
         CurrentHP = HP;
@@ -81,26 +78,26 @@ public class Agent : MonoBehaviour
     }
 
     // 트리거 사용할 때 리지드 바디랑 캡슐 콜리더를 같이 사용해야 한다.
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerStay(Collider other)
     {
-        if(other.transform.tag == "KingSword")
+        if (other.transform.tag == "KingSword")
         {
-            Debug.Log("무기 충돌");
-            int damaged = UnityEngine.Random.Range(minDamaged, minDamaged + randDamaged);
-            MonsterFloatText.ShowMessage(damaged.ToString(), transform.position);
-        }
+            Debug.Log("몬스터 맞음");
+            var character = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterBehaviour>();
+            if (character.IsBaseAttack)
+            {
+                var state = character.GetComponent<CharacterState>();
 
-        if(other.transform.tag == "Player")
-        {
-            Debug.Log("플레이어 콜리더 충돌");
-        }
+                int damaged = UnityEngine.Random.Range(state.Damage, state.Damage + state.RandomDamage);
 
-        else if(other.transform.tag == "Map")
-        {
-            Debug.Log("Map 충돌");   
-        }
+                CurrentHP -= damaged;
+                HPBarImg.fillAmount = (float)CurrentHP / HP;
+                character.IsBaseAttack = false;
 
-        //Debug.Log(other.transform.tag);
+                MonsterFloatText.ShowMessage(damaged.ToString(), transform.position);
+            }
+        }
     }
 
     public bool CheckRange()
@@ -238,10 +235,5 @@ public class Agent : MonoBehaviour
     {
         moveTimeCurrent = 0.0f;
         moveTimeTotal = 0.0f;
-    }
-
-    static public void SetTakeDamaged(int minDamage, int randDamage)
-    {
-
     }
 }

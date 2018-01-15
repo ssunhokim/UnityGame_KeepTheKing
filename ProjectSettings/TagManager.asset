@@ -27,6 +27,8 @@ TagManager:
   - WayPoint
   - Map
   - KingSword
+  - MonsterBar
+  - MonsterHPBar
   layers:
   - Default
   - TransparentFX

@@ -40,17 +40,22 @@ public class State_Move : FSM_State<Agent>
         foreach (var obj in GameObject.FindGameObjectsWithTag("Player"))
         {
             // 공격 범위내 있는지 확인
-            if ((obj.transform.position - _Monster.transform.position).magnitude <= _Monster.SensorRange)
+
+            Vector3 dir = obj.transform.position - _Monster.transform.position;
+            dir = obj.transform.position - _Monster.transform.position;
+
+            Vector3 len = new Vector3(obj.transform.position.x - _Monster.transform.position.x,
+                        0, obj.transform.position.z - _Monster.transform.position.z);
+
+            if (len.magnitude <= _Monster.SensorRange)
             {
                 RaycastHit hit;
-                Vector3 dir = obj.transform.position - _Monster.transform.position;
-                dir.Normalize();
 
                 if (Physics.Raycast(_Monster.transform.position, dir * 8.0f, out hit, 8))
                 {
                     _Monster.target = obj;      // 타겟 설정
 
-                    if ((obj.transform.position - _Monster.transform.position).magnitude <= _Monster.AttackRange)
+                    if (len.magnitude <= _Monster.AttackRange)
                     {
                         _Monster.ChangeState(State_Attack.Instance);
                         Debug.Log("플레이어 공격 범위 내 있음");
@@ -61,6 +66,13 @@ public class State_Move : FSM_State<Agent>
                         _Monster.setMove = 1.0f;
                         Debug.Log("플레이어 센서 범위 내 있음");
                     }
+                }
+
+                if (len.magnitude <= _Monster.AttackRange / 3)
+                {
+                    _Monster.ChangeState(State_Attack.Instance);
+                    Debug.Log("플레이어 공격 범위 내 있음");
+                    return;
                 }
             }
             else

@@ -33,20 +33,26 @@ public class State_Attack : FSM_State<Agent>
         if (_Monster.HP <= 0)
             _Monster.ChangeState(State_Die.Instance);
 
-        if(!CharacterState.IsDead && _Monster.CheckRange() && _Monster.CheckAngle())
-        {
-            if(AttackTimer >= _Monster.AttackSpeed)
-            {
-                CharacterState.ReceiveDamage = _Monster.Damage;
-                AttackTimer = 0.0f;
-                _Monster.ChaseTime = 0.0f;
-                Debug.Log("Attack Start");
-            }
-        }
+        //if(!CharacterState.IsDead && _Monster.CheckRange() && _Monster.CheckAngle())
+        //{
+        //    if(AttackTimer >= _Monster.AttackSpeed)
+        //    {
+        //        CharacterState.ReceiveDamage = _Monster.Damage;
+        //        AttackTimer = 0.0f;
+        //        _Monster.ChaseTime = 0.0f;
+        //        Debug.Log("Attack Start");
+        //    }
+        //}
         
+        if(_Monster.AttackCurrentTimer >= _Monster.AttackEndTimer)
+        {
+            _Monster.AttackCurrentTimer = 0.0f;
+            _Monster.ChangeState(State_Idle.Instance);
+            return;
+        }
         else
         {
-            _Monster.ChangeState(State_Idle.Instance);
+            _Monster.AttackCurrentTimer += Time.deltaTime;
         }
     }
     public override void ExitState(Agent _Monster)

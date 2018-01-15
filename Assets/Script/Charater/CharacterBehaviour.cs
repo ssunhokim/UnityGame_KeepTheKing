@@ -13,14 +13,14 @@ public class CharacterBehaviour : MonoBehaviour
     private Vector3 velocity;       // 상대속도 구하는 벡터값
     private bool IsRun = false;     // 달리고 있는 상태인지
     public int attackCount;        // 공격 카운트
+    public bool IsBaseAttack;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         attackCount = 0;
-
-        FloatingTextController.Initialize();
+        IsBaseAttack = false;
     }
 
     void FixedUpdate()
@@ -78,43 +78,48 @@ public class CharacterBehaviour : MonoBehaviour
                 animator.SetBool("IsRun", false);
 
             animator.SetBool("IsAttack", true);
+            IsBaseAttack = true;
             attackCount++;
         }
     }
 
     void AttackInit()
     {
-        if(attackCount < 2)
+        if(!IsBaseAttack)
         {
             animator.SetBool("IsAttack", false);
             attackCount = 0;
         }
+        IsBaseAttack = false;
     }
 
     void Attack1Start()
     {
-        if(attackCount<3)
+        if(!IsBaseAttack)
         {
             animator.SetBool("IsAttack", false);
             attackCount = 0;
         }
+        IsBaseAttack = false;
     }
 
     void Attack2Start()
     {
-        if (attackCount < 4)
+        if (!IsBaseAttack)
         {
             animator.SetBool("IsAttack", false);
             attackCount = 0;
         }
+        IsBaseAttack = false;
     }
 
     void Attack3Start()
     {
-        if (attackCount < 5)
+        if (!IsBaseAttack)
         {
             animator.SetBool("IsAttack", false);
             attackCount = 0;
         }
+        IsBaseAttack = false;
     }
 }

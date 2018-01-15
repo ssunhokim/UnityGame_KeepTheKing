@@ -21,7 +21,7 @@ public class State_Die : FSM_State<Agent>
 
     public override void EnterState(Agent _Monster)
     {
-        _Monster.GetComponent<Animation>().CrossFade("Dead");
+        _Monster.animator.SetBool("IsDie", true);
         _Monster.IsDead = true;
     }
     public override void UpdateState(Agent _Monster)

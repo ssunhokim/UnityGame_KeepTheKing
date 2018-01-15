@@ -25,7 +25,7 @@ public class CharacterState : MonoBehaviour {
     public float ResetStaminerTime = 0.3f;  // 리셋될때의 시간
     public float AttackSpend = 0.0f;        // 공격시 사용되는 스태미너 값
     public int Damage;      // 케릭터 기본공격 대미지(최소 공격 대미지)
-    public int RandomDamage;    // 데미지 강도
+    public int RandomDamage;    // 데미지 강도의 정도
     static public bool IsDead;
     static public int ReceiveDamage;        // 받은 데미지
 
@@ -47,7 +47,6 @@ public class CharacterState : MonoBehaviour {
         currentStaminer = MaxStaminer;
         anim = GetComponent<Animator>();
         character = GetComponent<CharacterBehaviour>();
-        Agent.SetTakeDamaged(Damage, RandomDamage);
     }
 	
 	// Update is called once per frame
