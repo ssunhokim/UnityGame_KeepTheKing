@@ -12,7 +12,7 @@ public class FloatingText : MonoBehaviour {
     public Animator animator;
     private Text dmgText;
 
-	void OnEnable ()
+	void Start ()
     {
         Debug.Log("Start Floating Text");
 
@@ -20,7 +20,6 @@ public class FloatingText : MonoBehaviour {
         Destroy(gameObject, clipInfo[0].clip.length);
 
         dmgText = animator.GetComponent<Text>();
-
     }
 
 	void Update () {

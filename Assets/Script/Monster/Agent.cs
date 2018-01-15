@@ -87,7 +87,7 @@ public class Agent : MonoBehaviour
         {
             Debug.Log("무기 충돌");
             int damaged = UnityEngine.Random.Range(minDamaged, minDamaged + randDamaged);
-            FloatingTextController.CreateFloatingText(damaged.ToString(), transform);
+            MonsterFloatText.ShowMessage(damaged.ToString(), transform.position);
         }
 
         if(other.transform.tag == "Player")

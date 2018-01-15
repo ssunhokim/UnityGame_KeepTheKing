@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityGameKeepTheKing", "UnityGameKeepTheKing.csproj", "{B023576D-B1A0-B3D6-2AF7-88EA6D0211B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityGameKeepTheKing.Editor", "UnityGameKeepTheKing.Editor.csproj", "{EF7BFE28-DC5F-7EFA-9DD1-322C8A0162EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B023576D-B1A0-B3D6-2AF7-88EA6D0211B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B023576D-B1A0-B3D6-2AF7-88EA6D0211B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B023576D-B1A0-B3D6-2AF7-88EA6D0211B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B023576D-B1A0-B3D6-2AF7-88EA6D0211B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF7BFE28-DC5F-7EFA-9DD1-322C8A0162EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF7BFE28-DC5F-7EFA-9DD1-322C8A0162EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF7BFE28-DC5F-7EFA-9DD1-322C8A0162EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF7BFE28-DC5F-7EFA-9DD1-322C8A0162EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
