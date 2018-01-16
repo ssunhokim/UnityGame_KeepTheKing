@@ -38,6 +38,7 @@ public class Agent : MonoBehaviour
     private Vector3 currentWaypointPosition;
     private float moveTimeTotal;
     private float moveTimeCurrent;
+    private Rigidbody rigidBody;
     public Animator animator;   // 몬스터 애니메이터
     public GameObject target;   // 타겟 설정
     public Image HPBarImg;
@@ -57,6 +58,9 @@ public class Agent : MonoBehaviour
         {
             WalfList.Add(list);
         }
+
+        rigidBody = GetComponent<Rigidbody>();
+        rigidBody.velocity = new Vector3(0, 0, 0);
     }
 
     void Update()
@@ -96,6 +100,8 @@ public class Agent : MonoBehaviour
                 character.IsBaseAttack = false;
 
                 MonsterFloatText.ShowMessage(damaged.ToString(), transform.position);
+
+                monsterState.ChangeState(State_Damaged.Instance);
             }
         }
     }
