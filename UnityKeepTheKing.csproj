@@ -126,6 +126,7 @@
     <Compile Include="Assets\Script\Monster\FSM\FSM_State.cs" />
     <Compile Include="Assets\Script\Monster\FSM\MonsterStateMachine.cs" />
     <Compile Include="Assets\Script\Monster\FSM\State_Attack.cs" />
+    <Compile Include="Assets\Script\Monster\FSM\State_Damaged.cs" />
     <Compile Include="Assets\Script\Monster\FSM\State_Die.cs" />
     <Compile Include="Assets\Script\Monster\FSM\State_Idle.cs" />
     <Compile Include="Assets\Script\Monster\FSM\State_Move.cs" />
