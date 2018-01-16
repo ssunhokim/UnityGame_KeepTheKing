@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -329,6 +327,7 @@
     <Compile Include="Assets\Script\MakeRaddarObject.cs" />
     <Compile Include="Assets\Script\Monster\Agent.cs" />
     <Compile Include="Assets\Script\Monster\AgentBehaviour.cs" />
+    <Compile Include="Assets\Script\Monster\AgentCameraLookAt.cs" />
     <Compile Include="Assets\Script\Monster\FSM\FSM_State.cs" />
     <Compile Include="Assets\Script\Monster\FSM\MonsterStateMachine.cs" />
     <Compile Include="Assets\Script\Monster\FSM\State_Attack.cs" />
@@ -339,8 +338,8 @@
     <Compile Include="Assets\Script\Monster\MonsterFloatText.cs" />
     <Compile Include="Assets\Script\Monster\MonsterManager.cs" />
     <Compile Include="Assets\Script\Monster\MonsterWayPoint.cs" />
-    <Compile Include="Assets\Script\MonsterCreate.cs" />
     <Compile Include="Assets\Script\Monster\SpriteControl.cs" />
+    <Compile Include="Assets\Script\MonsterCreate.cs" />
     <Compile Include="Assets\Script\PathManager.cs" />
     <Compile Include="Assets\Script\Portal\CreateWalf.cs" />
     <Compile Include="Assets\Script\RadarMiniMap.cs" />
@@ -352,6 +351,7 @@
     <Compile Include="Assets\Script\StandardAsset\RigidbodyFirstPersonController.cs" />
     <Compile Include="Assets\Script\UI\FloatingText.cs" />
     <Compile Include="Assets\Script\UI\FloatingTextController.cs" />
+    <Compile Include="Assets\Script\UI\MonsterHpBar.cs" />
     <Compile Include="Assets\Script\UI\OptionExpandMiniMap.cs" />
     <Compile Include="Assets\Script\UI\OptionMenu.cs" />
     <Compile Include="Assets\Script\UI\OptionMonsterTimer.cs" />
